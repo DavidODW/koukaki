@@ -1,0 +1,87 @@
+/*variables palette*/
+/*variables animation*/
+/*variables responsive*/
+/*section nomination css****************************************************************************************************************/
+.titre__nomination {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 250px;
+  margin-top: 80px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+.titre__nomination h3 {
+  display: flex;
+  width: 50%;
+  background-image: url("../assets/images/bck_oscars.png");
+  background-size: cover;
+  text-align: left !important;
+  color: #FFF5E9 !important;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.2509803922);
+  font-size: 2.5em;
+  font-weight: 700;
+  padding-right: 0;
+}
+.titre__nomination .logo__nomination {
+  display: flex;
+  width: 278px;
+  height: 129px;
+  padding-top: 2em;
+}
+.titre__nomination::before {
+  content: url(../assets/images/Sunflower.png);
+  position: absolute;
+  left: 11em;
+  top: -7em;
+  animation: flower-animation 10s infinite linear;
+}
+.titre__nomination::after {
+  content: url(../assets/images/orchid.png);
+  position: absolute;
+  right: -4em;
+  top: -7.8em;
+  animation: flower-animation 10s infinite linear;
+}
+@media (max-width: 1040px) {
+  .titre__nomination h3 {
+    padding-top: 2em;
+    width: 63%;
+    background-size: 100%;
+    font-size: 2em;
+  }
+  .titre__nomination::before {
+    left: 2em;
+    top: -7em;
+  }
+}
+@media (max-width: 920px) {
+  .titre__nomination::before {
+    display: none;
+  }
+  .titre__nomination::after {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .titre__nomination {
+    flex-direction: column;
+  }
+  .titre__nomination h3 {
+    align-self: center;
+    margin-top: 6em;
+    width: 100%;
+    background-size: cover;
+    font-size: 2em;
+  }
+  .titre__nomination .logo__nomination {
+    align-self: center;
+    padding-top: 0em;
+    margin-bottom: 8em;
+  }
+  .titre__nomination::before {
+    left: 2em;
+    top: -7em;
+  }
+}/*# sourceMappingURL=section_nomination.css.map */

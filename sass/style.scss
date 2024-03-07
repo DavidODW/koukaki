@@ -1,0 +1,541 @@
+/********************************************declaration des variables**************************************************************************************************************************************************/
+@import "../sass/variables.scss";
+/********************************************HEADER**************************************************************************************************************************************************/
+/***********************************menu burger************************************************************************************************************************************************/
+.site-title{
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+#site-navigation{
+    .burger__btn {
+        position: absolute;
+        top: 0px;
+        right: 50px;
+        height: 50px;
+        width: 50px;
+
+    }
+    .site-title{
+        display: flex;
+        justify-content: center;
+    }
+    .close__burger__btn  {
+        position: absolute;
+        top: 0px;
+        right: 50px;
+        height: 50px;
+        width: 50px;
+    }
+    @media screen and (max-width:$breakpoint__small_phone) {
+        .burger__btn {
+            right: 40px;
+            height: 25px;
+            width: 25px;
+        } 
+        .close__burger__btn  {
+            top: 20px;
+            right: 40px;
+            font-size: 35px;
+        }
+        .site-title{
+            font-size: 13px;
+
+        }
+        .banner__menu__open .site-title{
+            padding-top: 44px;
+        }
+    }
+}
+ 
+/* conteneur de mon menu la hauteur est a 0% et passe a 100% au clic*/
+.overlay {
+    height:0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: $color-nomination-title;
+    overflow-x: hidden;
+    transition: 1s;
+    opacity: 0;
+  
+    &::before{     
+        content: url(../assets/images/orchid_navi.png);
+        position: absolute;
+        left: -4em;
+        top:15em;
+        animation: flower-animation $duration-flower-rotation infinite linear ;
+ 
+    }
+    .overlay-content {/*conteneur de la liste qui contient mon menu */
+        position: relative;
+        top: 20%; 
+        width: 100%; 
+        text-align: center;
+        margin-top: 30px; 
+        ul{
+            display: flex;
+            flex-direction: column;
+            font-size: 64px;
+            li:nth-child(1){
+                &::before{
+                    content: url(../assets/images/Sunflower_navi.png);
+                    position: absolute;
+                    left: 36em;
+                    top: -8em;    
+                    transform-origin: 109px 108.5px;              
+                    animation: flower-animation $duration-flower-rotation infinite linear ;
+                }
+                &::after{
+                    content: url(../assets/images/Kawaneko_navi.png);
+                    position: absolute;
+                    right: 55em;
+                    top: -3em;    
+                    transform-origin: 109px 108.5px;              
+                    animation: logo_animation $duration-float-animation ease-in-out infinite;
+                }
+
+            }
+            li:nth-child(2){
+                &::before{
+                    content: url(../assets/images/random_flower_navi.png);
+                    position: absolute;
+                    left: 95em;
+                    top: 4em;    
+                    transform-origin: 38px  37.5px ;              
+                    animation: flower-animation $duration-flower-rotation infinite linear ;
+                }
+                &::after{
+                    content: url(../assets/images/flower_navi.png);
+                    position: absolute;
+                    right: 65em;
+                    top: 8em;                 
+                    animation: flower-animation $duration-flower-rotation infinite linear ;
+                }
+
+            }
+            li:nth-child(3){
+                &::before{
+                    content: url(../assets/images/Jaakuna_navi.png);
+                    position: absolute;
+                    left: 36em;
+                    top: 0;    
+                    transform-origin: 109px 108.5px;              
+                    animation: logo_animation $duration-float-animation ease-in-out infinite;
+                }
+                &::after{  
+                    content: url(../assets/images/logo__navigation.png);
+                    position: absolute;
+                    filter:drop-shadow(0px 0px 30px $color-burger-shadow);
+                    top:-37em; 
+                    right:-19em;
+                    transform: scale(0.3);  
+                }
+
+            }
+            li:nth-child(4){
+                &::before{
+                    content: url(../assets/images/hibiscus_footer.png);
+                    position: absolute;
+                    left: 80em;
+                    top: 10em;                 
+                    animation: flower-animation $duration-flower-rotation infinite linear ;
+                }
+                &::after{
+                    content: url(../assets/images/Orenjiiro_navi.png);
+                    position: absolute;
+                    right: 90em;
+                    top: 15em;    
+                    transform-origin: 109px 108.5px;              
+                    animation: logo_animation $duration-float-animation ease-in-out infinite;
+                }
+
+            }
+            @media screen and (max-width:$breakpoint__large_phone) {
+                li:nth-child(1){
+                    &::before{
+                        display: none;
+                    }
+                    &::after{  
+                        display: none;
+                    }  
+                }
+                li:nth-child(2){
+                    &::before{
+                        display: none;
+                    }
+                    &::after{  
+                        display: none;
+                    }  
+                }
+                li:nth-child(3){
+                    &::before{
+                        display: none;
+                    }
+                    &::after{  
+                        top:-30em; 
+                        right:-22em;
+                    }  
+                }
+                li:nth-child(4){
+                    &::before{
+                        display: none;
+                    }
+                    &::after{  
+                        display: none;
+                    }  
+                }
+            }
+        }
+        p{
+            padding-top: 200px;
+            font-size: 2em;
+        }
+
+      }
+    & a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 4em;
+        color: #000000;
+        display: block;
+        transition: 0.3s;
+      }
+    & .close__burger__btn {
+        position: absolute;
+        top: 0px;
+        right: 515px;
+        font-size: 70px;
+        color: black;
+      }
+    .banner__menu__open
+    {
+        background-color:$color-burger-background;
+        height: 7.5em;
+        .site-title{
+            padding-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+    }
+    & a:hover, & a:focus  {
+        text-shadow: (0px 0px 15px $color-burger-shadow);
+
+      }
+
+    @media screen and (max-width:$breakpoint__large_phone) {
+        & a {font-size: 2em;}
+        #myNav::before{     
+            display: none;
+        }
+      
+    }
+
+}
+/***********************************animation du logo************************************************************************************************************************************************/
+.logo-animation {
+    animation: logo_animation $duration-float-animation ease-in-out infinite;
+}
+.banner__parallax{
+    min-height: 806px;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/***********************************vidéo du header************************************************************************************************************************************************/
+.banner {
+    position: relative;
+    object-fit: contain;
+    #background-video {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        
+    }
+    .banner_img{
+        z-index: 2;
+    }
+
+    @media(max-width:$breakpoint__large_phone){
+        #background-video {
+            display: none;          
+        }
+
+    }
+    @media screen and (max-width:$breakpoint__small_phone) {
+        .banner_img{
+            width: 80%;
+        }
+    }   
+}
+
+
+/********************************************SECTION PERSONNAGES**************************************************************************************************************************************************/
+/*css swiper*/
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+/*adaptation du titre et des noms de personnages*/
+#characters {
+    h3 {
+        text-align: left !important;
+        background-position:50px!important;
+        }
+    .swiper-slide{
+        font-size: 1.5em;
+        font-weight: 400;
+    }
+}
+
+/********************************************SECTION LIEU**************************************************************************************************************************************************/
+/*css section lieu */
+#place{
+    overflow: hidden;
+    position: relative;
+    background-image: url("../assets/images/Studio_Koukaki-image_place.png")!important;
+    img{
+        filter: blur(10px);
+    }
+
+    .place-cloud {
+        position: absolute;
+        transition: transform 0.3s ease-out;
+      }
+    .place_img_big{
+        top: 70px;
+        right: 370px;/*70px position finale +300px pour la translation*/
+        width: 316px;
+        height: 123px;
+    }
+    .place_img_small{
+        top: 250px;
+        right: 770px; /*470px position finale +300px pour la translation */
+        width: 142px;
+        height: 55px;
+    }
+    
+
+}
+
+/********************************************SECTION NOMINATION**************************************************************************************************************************************************/
+/* import du css de la section nomination*/
+@import "section_nomination.scss";
+
+/********************************************SECTION FOOTER**************************************************************************************************************************************************/  
+/*effacement des fleurs du footer*/
+.site-footer {
+    &::before {
+        display:none;
+      }
+      &::after {
+        display:none;
+      }
+}
+
+
+/*******************************************ANIMATION ****************************************************************************************************************************************************/
+/*rotation des fleurs test*/
+ul{
+    &::after {
+        transform-origin: center;
+        animation: flower-animation $duration-flower-rotation infinite linear ;
+    }
+  }
+  #studio {
+    h2 {
+      &::before {
+        transform-origin: center;
+        animation: flower-animation $duration-flower-rotation infinite linear ;
+      }
+      &::after {
+        transform-origin: 54.5px 54.5px;
+        animation: flower-animation $duration-flower-rotation infinite linear ;
+      }
+    }
+  }
+  .story {
+  h2{
+    &::after {
+        transform-origin: 77.5px 77px;
+        animation: flower-animation $duration-flower-rotation infinite linear ;
+    }
+  }
+  &__article {
+    &::after {
+        transform-origin: center;
+        animation: flower-animation $duration-flower-rotation infinite linear ;
+    }
+  }
+}
+
+
+/*apparition des sections*/
+.section-hidden{
+    opacity: 0;    
+}
+.section-transition-up{
+    animation: opacity_appear  $duration-section-opacity ease-in normal, translate_section_up $duration-flower-rotation linear normal;
+}
+.section-transition-left{
+    animation: opacity_appear  $duration-section-opacity ease-in normal, translate_section_left $duration-section-translate linear normal;
+}
+.section-transition-right{
+    animation: opacity_appear  $duration-section-opacity ease-in normal, translate_section_right $duration-section-translate linear normal;
+}
+.section-transition-header{
+    animation: opacity_appear  $duration-section-opacity ease-in  normal, translate_section_down $duration-section-translate linear normal;
+
+}
+.logo-transition-up{
+    animation: opacity_appear  $duration-section-opacity ease-in normal, logo_transition_up $duration-section-translate linear normal;
+}
+
+/*animation des titres*/
+.title_transition{
+    animation-delay: 1s;
+    animation: title_animation $duration-title-translate ease-in-out;
+    span{
+        display: inline-block;
+        animation: title_animation $duration-title2-translate ease-in-out forwards; 
+    }
+}
+
+/*animation des liens du menu*/
+.burger-link-animation {
+    animation: opacity_appear  1s  ease-in normal, translate_section_up 1.5s 0.5s linear normal;
+    span{
+        display: inline-block;
+        animation: opacity_appear 1s ease-in normal, translate_section_up 2s 0.5s linear normal;
+    }
+}
+
+
+/********************************************KEYFRAMES**************************************************************************************************************************************************/  
+
+/*rotation des fleurs */
+@keyframes flower-animation{
+    0% {
+        transform: rotate(0deg);
+      }
+    50% {
+        transform: rotate(180deg);
+      }
+    100% {
+        transform: rotate(360deg);
+      }
+}
+
+/*apparitions des sections*/
+
+@keyframes opacity_appear {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes translate_section_up {
+    0%{
+        transform: translateY(100px);
+    }
+    50%{
+        transform: translateY(50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes translate_section_down {
+    0%{
+        transform: translateY(-100px);
+    }
+    50%{
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes translate_section_left {
+    0%{
+        transform: translateX(100px);
+    }
+    50%{
+        transform: translateX(50px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes translate_section_right {
+    0%{
+        transform: translateX(-100px);
+    }
+    50%{
+        transform: translateX(-50px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+/*animation des titres*/
+@keyframes title_animation {
+    0%{
+        transform: translateY(200px);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(100px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/*animation du logo*/
+@keyframes logo_animation {
+    0%, 100% {
+        transform: translate(0px,0px);
+    }
+    50% {
+        transform: translate(10px,-10px);
+    }
+}
+
+@keyframes logo_transition_up {
+    0%{
+        transform: translateY(600px);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(300px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+

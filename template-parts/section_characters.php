@@ -1,0 +1,31 @@
+<?php
+            $args = array(
+                'post_type' => 'characters',
+                'posts_per_page' => -1,
+                'meta_key'  => '_main_char_field',
+                'orderby'   => 'meta_value_num',
+
+            );
+            $characters_query = new WP_Query($args);
+            ?>
+            <article id="characters" class="section-hidden">
+                <div class="main-character ">
+                    <h3><div class="title_appear">Les <span>personnages</span></div></h3> <!--le span permet de jouer une deuxiéme animation en décalage-->
+                    <div class="swiper"> <!--coonteneur principal de swiper-->
+                        <div class="swiper-wrapper">   <!--le wrapper de swiper-->
+                            <?php
+                            while ( $characters_query->have_posts() ) {
+                                $characters_query->the_post();
+                                echo  '<div class="swiper-slide">';
+                                echo '<figure>';
+                                echo get_the_post_thumbnail( get_the_ID(), 'full' );
+                                echo '<figcaption>';
+                                the_title();
+                                echo'</figcaption>';
+                                echo '</figure>';
+                                echo'</div>';
+                            }
+                            ?>
+                        </div>
+                    </div>
+            </article>

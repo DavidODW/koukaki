@@ -1,0 +1,91 @@
+@import "../sass/variables.scss";
+/*section nomination css****************************************************************************************************************/
+.titre__nomination{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 250px;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    justify-content: center;
+
+    h3{
+        display: flex;
+        width: 50%;
+        background-image: url("../assets/images/bck_oscars.png");
+        background-size: cover;
+        text-align: left !important;
+        color: $color-nomination-title !important;
+        text-shadow:3px 3px #00000040;
+        font-size: 2.5em;
+        font-weight: 700;
+        padding-right: 0;
+    }
+    .logo__nomination{
+        display: flex;
+        width: 278px; 
+        height: 129px;
+        padding-top: 2em;
+        
+    }
+    &::before{
+        content: url(../assets/images/Sunflower.png);
+        position: absolute;
+        left: 11em;
+        top: -7em;    
+        animation: flower-animation $duration-flower-rotation infinite linear ;
+    }
+    &::after{     
+        content: url(../assets/images/orchid.png);
+        position: absolute;
+        right: -4em;
+        top: -7.8em;
+        animation: flower-animation $duration-flower-rotation infinite linear ;
+    }
+    @media(max-width:$breakpoint__tablet){
+
+        h3{
+            padding-top: 2em;
+            width: 63%;
+            background-size:100%;
+            font-size: 2em;
+        }
+        &::before{
+            left: 2em;
+            top: -7em;
+        }
+    }
+    @media(max-width:$breakpoint__small_tablet){
+
+        &::before{
+            display: none;
+        }
+        &::after{
+            display: none;
+        }
+    }
+    @media(max-width:$breakpoint__large_phone){
+        &{
+            flex-direction: column;
+        }
+        h3{
+            align-self: center;
+            margin-top: 6em;
+            width: 100%;
+            background-size:cover;
+            font-size: 2em;
+        }
+        .logo__nomination{
+            align-self: center;
+            padding-top: 0em;
+            margin-bottom: 8em;
+        }
+        &::before{
+            left: 2em;
+            top: -7em;
+        }
+    }
+
+}
+  
